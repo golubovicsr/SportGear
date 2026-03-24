@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-    <loc>https://golubovicsr.github.io/webBuilding/index.html</loc>
-    <lastmod>2026-02-25</lastmod>
+    <loc>https://golubovicsr.github.io/SportGear/index.html</loc>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
 </url>
 <url>
-    <loc>https://golubovicsr.github.io/webBuilding/autor.html</loc>
-    <lastmod>2026-02-25</lastmod>
+    <loc>https://golubovicsr.github.io/SportGear/shop.html</loc>
+    <lastmod>2026-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+</url>
+<url>
+    <loc>https://golubovicsr.github.io/SportGear/card.html</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+</url>
+<url>
+    <loc>https://golubovicsr.github.io/SportGear/autor.html</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>montly</changefreq>
+    <priority>0.6</priority>
 </url>
 </urlset>
