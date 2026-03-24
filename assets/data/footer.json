@@ -15,6 +15,14 @@
         {
             "href": "https://youtube.com",
             "icon": "fa-brands fa-youtube"
+        },
+        {
+            "href": "https://sitemap.xml",
+            "icon": "fa-solid fa-sitemap"
+        },
+         {
+            "href": "https://rss.xml",
+            "icon": "fa-solid fa-rss"
         }
     ],
     "products": [
