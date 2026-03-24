@@ -1,10 +1,14 @@
 <rss version="2.0">
 <channel>
 <item>
-<title>Dobro došli na sajt WebBuilding komapnije</title>
+<title>Dobro došli na sajt SportGear komapnije</title>
 <description>Ovde možete pronaći osnovne informacije našim uslugama!</description>
-<link>https://golubovicsr.github.io/webBuilding/index.html</link>
+<link>https://golubovicsr.github.io/SportGear/index.html</link>
 </item>
 <item>
+<title>Dobro došli na našu web prodavnicu!</title>
+<description>Imamo veliku ponudu sportske opreme u svim veličinama!</description>
+<link>https://golubovicsr.github.io/SportGear/shop.html</link>
+</item>
 </channel>
 </rss>
