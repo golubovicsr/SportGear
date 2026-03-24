@@ -1,0 +1,19 @@
+{
+    "menu": [
+        {
+            "name": "Početna",
+            "href": "index.html",
+            "active": true
+        },
+        {
+            "name": "Prodavnica",
+            "href": "shop.html",
+            "active": false
+        },
+        {
+            "name": "O autoru",
+            "href": "autor.html",
+            "active": false
+        }
+    ]
+}

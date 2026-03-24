@@ -1,0 +1,196 @@
+:root {
+    --primary-green: #28a745;
+    --dark-green: #1e7e34;
+    --light-green: #d4edda;
+    --superlight: #f8f9fa;
+    --yellow: #ffc107;
+    --grey: #6c757d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 76px;
+}
+
+/* Navigacija */
+.navbar-brand {
+    color: var(--primary-green) !important;
+}
+
+/* Kartica proizvoda */
+.product-card {
+    border: none;
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+/* Badge za "Novo" i "Popust" */
+.badge-new {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--yellow);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    z-index: 2;
+}
+
+.badge-discount {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    z-index: 2;
+}
+
+/* Organska/Cotton oznaka - prilagođeno za sport */
+.badge-sport {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* Cene */
+.old-price {
+    text-decoration: line-through;
+    color: var(--grey);
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+.new-price {
+    color: #dc3545;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.regular-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary-green);
+}
+
+/* Zvezdice */
+.stars {
+    color: var(--yellow);
+    margin: 5px 0;
+}
+
+/* Dugmad */
+.add-to-cart {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: var(--dark-green);
+}
+
+/* Benefit blokovi */
+.benefit-item {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.benefit-item i {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 15px;
+}
+
+/* Read More dugme */
+.read-more {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+}
+
+.read-more:hover {
+    background-color: var(--dark-green);
+}
+
+/* Footer linkovi */
+.footer-link {
+    color: var(--light-green);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: white;
+}
+
+/* Korpa strana */
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.delete-item {
+    border: none;
+    background: none;
+    color: #dc3545;
+    font-size: 1.2rem;
+}
+
+/* Toast */
+.toast-success {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: var(--primary-green);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    display: none;
+    z-index: 9999;
+}

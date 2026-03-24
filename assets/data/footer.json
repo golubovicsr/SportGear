@@ -1,0 +1,42 @@
+{
+    "social": [
+        {
+            "href": "https://facebook.com",
+            "icon": "fa-brands fa-facebook"
+        },
+        {
+            "href": "https://instagram.com",
+            "icon": "fa-brands fa-instagram"
+        },
+        {
+            "href": "https://twitter.com",
+            "icon": "fa-brands fa-x-twitter"
+        },
+        {
+            "href": "https://youtube.com",
+            "icon": "fa-brands fa-youtube"
+        }
+    ],
+    "products": [
+        "Patike",
+        "Dresovi",
+        "Trenerke",
+        "Majice",
+        "Oprema",
+        "Šorcevi"
+    ],
+    "contact": [
+        {
+            "icon": "fa-solid fa-house",
+            "text": "Bulevar Oslobođenja 10, Novi Sad"
+        },
+        {
+            "icon": "fa-solid fa-envelope",
+            "text": "info@sportgear.rs"
+        },
+        {
+            "icon": "fa-solid fa-phone",
+            "text": "+381 64 123 4567"
+        }
+    ]
+}

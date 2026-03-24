@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="O autoru - SportGear">
+    <title>SportGear - O autoru</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Naš CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <header>
+        <!-- Navigacija -->
+        <nav class="navbar navbar-expand-lg bg-light shadow-sm fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-3" href="index.html">SportGear</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto" id="dynamicMenu">
+                        <!-- Dinamički meni -->
+                    </ul>
+                </div>
+                <div class="ms-3">
+                    <a href="cart.html" class="text-dark text-decoration-none">
+                        <span id="totalPrice" class="me-2">$0.00</span>
+                        <span class="cart-icon position-relative">
+                            <i class="fa-solid fa-cart-shopping fs-5"></i>
+                            <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white text-center py-3">
+                        <h2 class="mb-0">O autoru</h2>
+                    </div>
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <!-- Dodaj svoju sliku u assets/img/ -->
+                            <img src="assets/img/autor.jpg" alt="Autor" class="rounded-circle img-fluid" style="width: 200px; height: 200px; object-fit: cover;">
+                        </div>
+                        
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width: 150px;">Ime i prezime:</th>
+                                <td>Sreten Golubović</td>
+                            </tr>
+                            <tr>
+                                <th>Broj indeksa:</th>
+                                <td>125/23</td>
+                            </tr>
+                            <tr>
+                                <th>Fakultet:</th>
+                                <td>Visoka ICT škola</td>
+                            </tr>
+                            <tr>
+                                <th>Smer:</th>
+                                <td>Internet tehnologije</td>
+                            </tr>
+                            <tr>
+                                <th>Predmet:</th>
+                                <td>Web programiranje 2</td>
+                            </tr>
+                            <tr>
+                                <th>Email:</th>
+                                <td>
+                                    <a href="mailto:sreten.golubovic.125.23@ict.edu.rs">
+                                        sreten.golubovic.125.23@ict.edu.rs
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <div class="text-center mt-4">
+                            <a href="documentation.pdf" class="btn btn-success me-2" target="_blank">
+                                <i class="fa-solid fa-file-pdf me-2"></i>Dokumentacija
+                            </a>
+                            <a href="index.html" class="btn btn-outline-success">
+                                <i class="fa-solid fa-house me-2"></i>Početna
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 mt-5">
+        <div class="container" id="footerContent">
+            <!-- Footer sadržaj iz JSON-a -->
+        </div>
+    </footer>
+
+    <!-- jQuery i Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Naš JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

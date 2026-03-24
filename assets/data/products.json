@@ -1,0 +1,118 @@
+[
+    {
+        "id": 1,
+        "src": "nike-dres.jpg",
+        "price": {
+            "old": 6600,
+            "new": 5500
+        },
+        "description": "Nike fudbalski dres",
+        "category": "Dresovi",
+        "sport": "Fudbal",
+        "brand": "Nike",
+        "new": true,
+        "stars": 5,
+        "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+        "id": 2,
+        "src": "adidas-patike.jpg",
+        "price": {
+            "new": 9900
+        },
+        "description": "Adidas patike za trčanje",
+        "category": "Patike",
+        "sport": "Trčanje",
+        "brand": "Adidas",
+        "new": true,
+        "stars": 4,
+        "sizes": [39, 40, 41, 42, 43, 44]
+    },
+    {
+        "id": 3,
+        "src": "puma-trenerka.jpg",
+        "price": {
+            "old": 8250,
+            "new": 6600
+        },
+        "description": "Puma trenerka set",
+        "category": "Trenerke",
+        "sport": "Opšte",
+        "brand": "Puma",
+        "new": false,
+        "stars": 5,
+        "sizes": ["S", "M", "L", "XL", "XXL"]
+    },
+    {
+        "id": 4,
+        "src": "underarmor-majica.jpg",
+        "price": {
+            "new": 4400
+        },
+        "description": "Under Armor kompresiona majica",
+        "category": "Majice",
+        "sport": "Teretana",
+        "brand": "Under Armor",
+        "new": true,
+        "stars": 4,
+        "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+        "id": 5,
+        "src": "nike-patike.jpg",
+        "price": {
+            "old": 14300,
+            "new": 11000
+        },
+        "description": "Nike Air Max 270",
+        "category": "Patike",
+        "sport": "Slobodno vreme",
+        "brand": "Nike",
+        "new": false,
+        "stars": 5,
+        "sizes": [40, 41, 42, 43, 44, 45]
+    },
+    {
+        "id": 6,
+        "src": "adidas-dres.jpg",
+        "price": {
+            "new": 6050
+        },
+        "description": "Adidas dres košarka",
+        "category": "Dresovi",
+        "sport": "Košarka",
+        "brand": "Adidas",
+        "new": true,
+        "stars": 4,
+        "sizes": ["S", "M", "L", "XL"]
+    },
+    {
+        "id": 7,
+        "src": "rebook-rukavice.jpg",
+        "price": {
+            "old": 3300,
+            "new": 2750
+        },
+        "description": "Reebok rukavice za teretanu",
+        "category": "Oprema",
+        "sport": "Teretana",
+        "brand": "Reebok",
+        "new": false,
+        "stars": 3,
+        "sizes": ["S", "M", "L"]
+    },
+    {
+        "id": 8,
+        "src": "jordan-sorc.jpg",
+        "price": {
+            "new": 4950
+        },
+        "description": "Jordan šorc",
+        "category": "Šorcevi",
+        "sport": "Košarka",
+        "brand": "Jordan",
+        "new": false,
+        "stars": 4,
+        "sizes": ["S", "M", "L", "XL"]
+    }
+]

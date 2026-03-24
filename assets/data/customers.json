@@ -1,0 +1,20 @@
+[
+    {
+        "img": "customer1.jpg",
+        "name": "Marko Petrović",
+        "stars": 5,
+        "comment": "Odličan kvalitet, patike su udobne i stigle su za 2 dana. Preporuke!"
+    },
+    {
+        "img": "customer2.jpg",
+        "name": "Jovan Jovanović",
+        "stars": 5,
+        "comment": "Dres savršeno stoji, materijal je prozračan. Biće još porudžbina."
+    },
+    {
+        "img": "customer3.jpg",
+        "name": "Ana Nikolić",
+        "stars": 4,
+        "comment": "Sve pohvale za opremu, samo bi dostava mogla biti brža."
+    }
+]

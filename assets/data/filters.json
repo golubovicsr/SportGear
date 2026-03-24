@@ -1,0 +1,35 @@
+{
+    "categories": [
+        { "id": "patike", "name": "Patike" },
+        { "id": "dresovi", "name": "Dresovi" },
+        { "id": "trenerke", "name": "Trenerke" },
+        { "id": "majice", "name": "Majice" },
+        { "id": "oprema", "name": "Oprema" }
+    ],
+    "sports": [
+        { "id": "fudbal", "name": "Fudbal" },
+        { "id": "kosarka", "name": "Košarka" },
+        { "id": "teretana", "name": "Teretana" },
+        { "id": "trcanje", "name": "Trčanje" },
+        { "id": "opste", "name": "Opšte" }
+    ],
+    "brands": [
+        { "id": "nike", "name": "Nike" },
+        { "id": "adidas", "name": "Adidas" },
+        { "id": "puma", "name": "Puma" },
+        { "id": "reebok", "name": "Reebok" },
+        { "id": "underarmor", "name": "Under Armor" }
+    ],
+    "sizes": [
+        { "id": "s", "name": "S" },
+        { "id": "m", "name": "M" },
+        { "id": "l", "name": "L" },
+        { "id": "xl", "name": "XL" },
+        { "id": "39", "name": "39" },
+        { "id": "40", "name": "40" },
+        { "id": "41", "name": "41" },
+        { "id": "42", "name": "42" },
+        { "id": "43", "name": "43" },
+        { "id": "44", "name": "44" }
+    ]
+}

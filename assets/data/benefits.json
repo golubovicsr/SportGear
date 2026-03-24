@@ -1,0 +1,22 @@
+[
+    {
+        "icon": "fa-solid fa-truck-fast",
+        "title": "Besplatna dostava",
+        "description": "Za porudžbine preko 5000 RSD"
+    },
+    {
+        "icon": "fa-solid fa-rotate-left",
+        "title": "Zamena do 30 dana",
+        "description": "Bez dodatnih pitanja"
+    },
+    {
+        "icon": "fa-solid fa-shield-heart",
+        "title": "100% originalno",
+        "description": "Svi brendovi su autentični"
+    },
+    {
+        "icon": "fa-solid fa-gift",
+        "title": "Poklon pakovanje",
+        "description": "Na vaš zahtev"
+    }
+]
