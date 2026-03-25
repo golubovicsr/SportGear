@@ -6,21 +6,19 @@ $(document).ready(function() {
     loadFooter();
 });
 
-// Globalne promenljive
 let allProducts = [];
 
-// Učitavanje proizvoda za prikaz slika
 $.ajax({
     url: DATA_PATH + 'products.json',
     method: 'GET',
     dataType: 'json',
     success: function(data) {
         allProducts = data;
-        displayCart(); // Ponovo prikazujemo korpu sa slikama
+        displayCart(); 
     }
 });
 
-// Prikaz korpe
+
 function displayCart() {
     let cart = getFromLocalStorage('cart') || [];
     
@@ -53,7 +51,6 @@ function displayCart() {
     `;
     
     cart.forEach((item, index) => {
-        // Pronađi sliku iz products.json ako postoji
         let product = allProducts.find(p => p.id == item.id);
         let imageSrc = product ? SRC_PATH + product.src : SRC_PATH + 'placeholder.jpg';
         let itemTotal = item.price * item.quantity;
@@ -92,7 +89,6 @@ function displayCart() {
                 </tbody>
             </table>
         </div>
-        
         <div class="row mt-4">
             <div class="col-md-6">
                 <button class="btn btn-outline-danger" id="clearCart">
@@ -115,14 +111,10 @@ function displayCart() {
             </div>
         </div>
     `;
-    
     $('#cartContent').html(tableHtml);
-    updateCartInfo(); // Ažuriraj info u header-u
+    updateCartInfo(); 
 }
-
-// Postavljanje event listenera za korpu
 function setupCartEvents() {
-    // Smanjenje količine
     $(document).on('click', '.decrease-qty', function() {
         let input = $(this).siblings('.item-qty');
         let currentVal = parseInt(input.val());
@@ -130,8 +122,6 @@ function setupCartEvents() {
             input.val(currentVal - 1).trigger('change');
         }
     });
-    
-    // Povećanje količine
     $(document).on('click', '.increase-qty', function() {
         let input = $(this).siblings('.item-qty');
         let currentVal = parseInt(input.val());
@@ -139,8 +129,6 @@ function setupCartEvents() {
             input.val(currentVal + 1).trigger('change');
         }
     });
-    
-    // Promena količine
     $(document).on('change', '.item-qty', function() {
         let index = $(this).data('index');
         let newQty = parseInt($(this).val());
@@ -153,18 +141,12 @@ function setupCartEvents() {
         if (cart && cart[index]) {
             cart[index].quantity = newQty;
             setLocalStorage('cart', cart);
-            
-            // Ažuriraj total za ovaj red
             let itemTotal = cart[index].price * newQty;
             $(this).closest('tr').find('.item-total').text(formatPrice(itemTotal));
-            
-            // Ažuriraj ukupan iznos
             updateCartTotal();
             updateCartInfo();
         }
     });
-    
-    // Brisanje pojedinačnog proizvoda
     $(document).on('click', '.delete-item', function() {
         let index = $(this).data('index');
         let cart = getFromLocalStorage('cart');
@@ -177,21 +159,15 @@ function setupCartEvents() {
             showToast('Proizvod uklonjen iz korpe');
         }
     });
-    
-    // Brisanje cele korpe - POPRAVLJENO!
     $(document).on('click', '#clearCart', function() {
         localStorage.removeItem('cart');
         displayCart();
         updateCartInfo();
         showToast('Korpa je ispražnjena');
 });
-    
-    // Otvaranje modala za porudžbinu
     $(document).on('click', '#orderBtn', function() {
         $('#orderModal').modal('show');
     });
-    
-    // Slanje porudžbine
     $('#submitOrder').click(function() {
         if (validateForm()) {
             showToast('Porudžbina uspešno poslata!');
@@ -207,8 +183,6 @@ function setupCartEvents() {
         }
     });
 }
-
-// Ažuriranje ukupne cene u korpi
 function updateCartTotal() {
     let cart = getFromLocalStorage('cart') || [];
     let total = 0;
@@ -219,8 +193,6 @@ function updateCartTotal() {
     
     $('#cartTotal').text(formatPrice(total));
 }
-
-// Računanje datuma isporuke (trenutni datum + 3 dana)
 function calculateDeliveryDate() {
     let today = new Date();
     let deliveryDate = new Date(today);
@@ -233,16 +205,12 @@ function calculateDeliveryDate() {
     let formattedDate = `${day}.${month}.${year}.`;
     $('#deliveryDate').val(formattedDate);
 }
-
-// Regex validacija
 const regexIme = /^[A-Z][a-z]{2,}$/;
 const regexEmail = /^[a-z0-9]{3,}@(gmail\.com|yahoo\.com|edu\.rs)$/;
 const regexTelefon = /^06[0-9]\/[0-9]{7}$/;
 
 function validateForm() {
     let isValid = true;
-    
-    // Validacija imena
     let firstName = $('#firstName').val();
     if (!regexIme.test(firstName)) {
         $('#firstName').addClass('border-danger').removeClass('border-success');
@@ -252,8 +220,6 @@ function validateForm() {
         $('#firstName').removeClass('border-danger').addClass('border-success');
         $('#firstName').next().text('');
     }
-    
-    // Validacija prezimena
     let lastName = $('#lastName').val();
     if (!regexIme.test(lastName)) {
         $('#lastName').addClass('border-danger').removeClass('border-success');
@@ -263,8 +229,6 @@ function validateForm() {
         $('#lastName').removeClass('border-danger').addClass('border-success');
         $('#lastName').next().text('');
     }
-    
-    // Validacija email-a
     let email = $('#email').val();
     if (!regexEmail.test(email)) {
         $('#email').addClass('border-danger').removeClass('border-success');
@@ -274,8 +238,6 @@ function validateForm() {
         $('#email').removeClass('border-danger').addClass('border-success');
         $('#email').next().text('');
     }
-    
-    // Validacija telefona
     let phone = $('#phone').val();
     if (!regexTelefon.test(phone)) {
         $('#phone').addClass('border-danger').removeClass('border-success');
@@ -285,8 +247,6 @@ function validateForm() {
         $('#phone').removeClass('border-danger').addClass('border-success');
         $('#phone').next().text('');
     }
-    
-    // Validacija načina dostave
     if ($('#delivery').val() === '') {
         $('#delivery').addClass('border-danger').removeClass('border-success');
         $('#delivery').next().text('Izaberite način dostave');
@@ -298,8 +258,6 @@ function validateForm() {
     
     return isValid;
 }
-
-// Toast poruka
 function showToast(message) {
     if ($('#toastMessage').length === 0) {
         $('body').append('<div id="toastMessage" class="toast-success"></div>');
