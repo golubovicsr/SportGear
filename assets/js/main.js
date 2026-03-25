@@ -1,25 +1,16 @@
-// Putanje do JSON fajlova
 const DATA_PATH = 'assets/data/';
 const SRC_PATH = 'assets/img/';
 
-// Funkcija za formatiranje cene u RSD
 function formatPrice(price) {
     return price.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' RSD';
 }
-
-// Čekanje da se DOM učita
 $(document).ready(function() {
     console.log('SportGear sajt učitan');
-    
-    // Učitavanje navigacije
+
     loadNavigation();
-    
-    // Prikaz broja proizvoda i ukupne cene iz LocalStorage-a
     updateCartInfo();
     loadFooter();
 });
-
-// Funkcija za učitavanje navigacije
 function loadNavigation() {
     $.ajax({
         url: DATA_PATH + 'navigation.json',
@@ -42,8 +33,6 @@ function loadNavigation() {
         }
     });
 }
-
-// Funkcije za LocalStorage korpu
 function setLocalStorage(name, data) {
     localStorage.setItem(name, JSON.stringify(data));
 }
@@ -52,32 +41,21 @@ function getFromLocalStorage(name) {
     let data = localStorage.getItem(name);
     return data ? JSON.parse(data) : null;
 }
-
-// Ažuriranje info o korpi
 function updateCartInfo() {
     let cart = getFromLocalStorage('cart') || [];
-    
-    // Broj proizvoda
     $('#cartCount').text(cart.length);
-    
-    // Ukupna cena
     let total = 0;
     cart.forEach(item => {
         total += parseFloat(item.price) * (item.quantity || 1);
     });
     $('#totalPrice').text(formatPrice(total));
 }
-
-// ==================== INDEX STRANA FUNKCIJE ====================
-
-// Proveri da li smo na index strani
 let path = window.location.pathname;
 if (path.includes('index.html') || path.endsWith('/SportGear/') || path.endsWith('/SportGear')) {
     loadIndexData();
 }
 
 function loadIndexData() {
-    // Učitaj sve potrebne podatke za index stranu
     $.ajax({
         url: DATA_PATH + 'products.json',
         method: 'GET',
@@ -104,7 +82,6 @@ function loadIndexData() {
             console.error('Greška pri učitavanju benefita:', error);
         }
     });
-
     $.ajax({
         url: DATA_PATH + 'customers.json',
         method: 'GET',
@@ -119,8 +96,6 @@ function loadIndexData() {
 
     loadFooter();
 }
-
-// 1. Slajder
 function displayCarousel() {
     let slides = [
         {
@@ -167,8 +142,6 @@ function displayCarousel() {
         `);
     });
 }
-
-// 2. Benefits (pogodnosti)
 function displayBenefits(benefits) {
     let html = '';
     benefits.forEach(benefit => {
@@ -184,8 +157,6 @@ function displayBenefits(benefits) {
     });
     $('#benefitsContainer').html(html);
 }
-
-// 3. New Arrivals (prva 4 nova proizvoda)
 function displayNewArrivals(products) {
     let newProducts = products.filter(p => p.new === true).slice(0, 4);
     let html = '';
@@ -201,8 +172,6 @@ function displayNewArrivals(products) {
         showSimpleProductModal(productId, products);
     });
 }
-
-// 4. Best Sellers (najbolje ocenjeni)
 function displayBestSellers(products) {
     let bestSellers = [...products].sort((a, b) => b.stars - a.stars).slice(0, 4);
     let html = '';
@@ -218,8 +187,6 @@ function displayBestSellers(products) {
         showSimpleProductModal(productId, products);
     });
 }
-
-// Helper funkcija za generisanje proizvoda (pojednostavljena za index)
 function generateProductCardSimple(product) {
     let priceHtml = '';
     if (product.price.old) {
@@ -235,7 +202,6 @@ function generateProductCardSimple(product) {
     if (product.new) {
         badges += '<span class="badge-new">Novo</span>';
     }
-    
     let stars = '';
     for (let i = 1; i <= 5; i++) {
         if (i <= product.stars) {
@@ -267,8 +233,6 @@ function generateProductCardSimple(product) {
         </div>
     `;
 }
-
-// Modal za index stranu
 function showSimpleProductModal(productId, products) {
     let product = products.find(p => p.id == productId);
     if (!product) return;
@@ -316,8 +280,6 @@ function showSimpleProductModal(productId, products) {
         addToCartFromIndex(productId, products);
     });
 }
-
-// Dodavanje u korpu sa index strane
 function addToCartFromIndex(productId, products) {
     let product = products.find(p => p.id == productId);
     if (!product) return;
@@ -338,8 +300,6 @@ function addToCartFromIndex(productId, products) {
     
     $('#productModalIndex').modal('hide');
 }
-
-// Event listeneri za add to cart dugmad na index strani
 $(document).on('click', '.add-to-cart-btn-index', function(e) {
     e.stopPropagation();
     let productId = $(this).data('id');
@@ -353,8 +313,6 @@ $(document).on('click', '.add-to-cart-btn-index', function(e) {
         }
     });
 });
-
-// Prikaz kupaca
 function displayCustomers(customers) {
     let html = '';
     customers.forEach(customer => {
@@ -380,8 +338,6 @@ function displayCustomers(customers) {
     });
     $('#customersContainer').html(html);
 }
-
-// Read More/Read Less funkcionalnost
 $(document).ready(function() {
     $('#readMoreBtn').click(function() {
         $('#hiddenText').slideToggle(500);
@@ -393,8 +349,6 @@ $(document).ready(function() {
         }
     });
 });
-
-// Footer
 function loadFooter() {
     $.ajax({
         url: DATA_PATH + 'footer.json',
@@ -461,8 +415,6 @@ function displayFooter(data) {
     
     $('#footerContent').html(html);
 }
-
-// Toast poruka za uspešne akcije
 function showToast(message) {
     // Proveri da li već postoji toast element
     if ($('#toastMessage').length === 0) {
@@ -470,8 +422,6 @@ function showToast(message) {
     }
     $('#toastMessage').text(message).fadeIn().delay(2000).fadeOut();
 }
-
-// Toast poruka za greške korisnicima
 function showUserError(message) {
     let toast = `
         <div style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
@@ -487,8 +437,6 @@ function showUserError(message) {
         $('.alert').alert('close');
     }, 5000);
 }
-
-// Try/Catch za obradu grešaka
 function safelyParseJSON(jsonString) {
     try {
         return JSON.parse(jsonString);
@@ -498,8 +446,6 @@ function safelyParseJSON(jsonString) {
         return null;
     }
 }
-
-// Formatiranje datuma
 function formatDate(date) {
     let day = date.getDate().toString().padStart(2, '0');
     let month = (date.getMonth() + 1).toString().padStart(2, '0');
