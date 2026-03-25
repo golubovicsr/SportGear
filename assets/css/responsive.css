@@ -1,4 +1,3 @@
-/* Telefoni */
 @media (max-width: 576px) {
     h1 {
         font-size: 1.8rem;
@@ -16,15 +15,11 @@
         margin-bottom: 15px;
     }
 }
-
-/* Tableti */
 @media (min-width: 577px) and (max-width: 768px) {
     .product-card {
         margin-bottom: 20px;
     }
 }
-
-/* Desktop */
 @media (min-width: 992px) {
     .product-card {
         height: 100%;
