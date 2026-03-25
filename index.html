@@ -8,26 +8,20 @@
     <!-- SEO meta tagovi -->
     <meta name="description" content="SportGear - Najbolja sportska oprema i odeća za sve sportove. Patike, dresovi, trenerke i više.">
     <meta name="keywords" content="sportska oprema, patike, dresovi, trenerke, sport, Nike, Adidas">
-    <meta name="author" content="Tvoje Ime">
+    <meta name="author" content="Sreten Golubovic">
     
     <title>SportGear - Sportska oprema</title>
     
-    <!-- Font Awesome ikonice -->
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Naš CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
 </head>
 <body>
     <header>
-        <!-- Navigacija - dinamički će se ispisati iz JSON-a -->
+        <!-- Navigacija se dinamički će se ispiše iz JSON-a -->
         <nav class="navbar navbar-expand-lg bg-light shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand fw-bold fs-3" href="index.html">SportGear</a>
@@ -36,7 +30,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto" id="dynamicMenu">
-                        <!-- Menu items će se ispisati iz navigation.json -->
+                        <!-- Meni podaci se ispisuju iz navigation.json -->
                     </ul>
                 </div>
                 <div class="ms-3">
@@ -53,7 +47,6 @@
     </header>
 
     <main>
-        <!-- Slajder -->
         <div id="heroCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
@@ -61,7 +54,7 @@
                 <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
             </div>
             <div class="carousel-inner" id="carouselInner">
-                <!-- Slike će se dodati dinamički -->
+                <!-- Slike dodajem dinamički -->
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
@@ -70,27 +63,21 @@
                 <span class="carousel-control-next-icon"></span>
             </button>
         </div>
-
-        <!-- Benefits/Pogodnosti sekcija -->
         <section class="container my-5">
             <h2 class="text-center mb-4">Zašto baš mi?</h2>
             <div class="row" id="benefitsContainer">
-                <!-- Benefits se ispisuju iz JSON-a -->
+                <!-- Benefits ispisujem iz JSON-a -->
             </div>
         </section>
-
-        <!-- New Arrivals sekcija -->
         <section class="container my-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3>Novo u ponudi</h3>
                 <a href="shop.html" class="btn btn-outline-success">Pogledaj sve <i class="fa-solid fa-arrow-right ms-2"></i></a>
             </div>
             <div class="row" id="newArrivals">
-                <!-- Prva 4 nova proizvoda -->
+        
             </div>
         </section>
-
-        <!-- Read More/Read Less sekcija -->
         <section class="bg-light py-5">
             <div class="container">
                 <div class="row align-items-center">
@@ -107,38 +94,30 @@
             </div>
         </section>
 
-        <!-- Best Sellers sekcija -->
         <section class="container my-5">
             <h3 class="text-center mb-4">Najprodavaniji</h3>
             <div class="row" id="bestSellers">
-                <!-- Najbolje ocenjeni proizvodi -->
+               
             </div>
         </section>
 
-        <!-- Customers sekcija -->
-    <!-- Customers sekcija -->
     <section class="bg-light py-5">
         <div class="container">
             <h3 class="text-center mb-4">Šta kažu naši kupci</h3>
         <div class="row" id="customersContainer">
-            <!-- Komentari kupaca iz JSON-a -->
+            <!-- Komentare ispusujem iz JSON-a -->
         </div>
     </div>
 </section>
     </main>
-
-    <!-- Footer -->
     <footer class="bg-dark text-light pt-5">
         <div class="container" id="footerContent">
             <!-- Footer sadržaj iz JSON-a -->
         </div>
     </footer>
 
-    <!-- jQuery i Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Naš JS -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>
