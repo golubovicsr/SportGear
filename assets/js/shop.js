@@ -4,14 +4,10 @@ $(document).ready(function() {
     setupEventListeners();
     loadFooter();
 });
-
-// Globalne promenljive
 let allProducts = [];
 let filteredProducts = [];
 let currentPage = 1;
 const itemsPerPage = 6;
-
-// Učitavanje proizvoda
 function loadProducts() {
     $.ajax({
         url: DATA_PATH + 'products.json',
@@ -29,8 +25,6 @@ function loadProducts() {
         }
     });
 }
-
-// Učitavanje filtera
 function loadFilters() {
     $.ajax({
         url: DATA_PATH + 'filters.json',
@@ -44,12 +38,8 @@ function loadFilters() {
         }
     });
 }
-
-// Prikaz filtera
 function displayFilters(filters) {
     let filterHtml = '';
-    
-    // Kategorije
     filterHtml += '<h5 class="mt-3">Kategorije</h5>';
     filters.categories.forEach(cat => {
         filterHtml += `
@@ -59,8 +49,6 @@ function displayFilters(filters) {
             </div>
         `;
     });
-    
-    // Sportovi
     filterHtml += '<h5 class="mt-3">Sport</h5>';
     filters.sports.forEach(sport => {
         filterHtml += `
@@ -70,8 +58,6 @@ function displayFilters(filters) {
             </div>
         `;
     });
-    
-    // Brendovi
     filterHtml += '<h5 class="mt-3">Brend</h5>';
     filters.brands.forEach(brand => {
         filterHtml += `
@@ -81,8 +67,6 @@ function displayFilters(filters) {
             </div>
         `;
     });
-    
-    // Veličine
     filterHtml += '<h5 class="mt-3">Veličina</h5>';
     filters.sizes.forEach(size => {
         filterHtml += `
@@ -95,8 +79,6 @@ function displayFilters(filters) {
     
     $('#filterContainer').html(filterHtml);
 }
-
-// Prikaz proizvoda
 function displayProducts() {
     let start = (currentPage - 1) * itemsPerPage;
     let end = start + itemsPerPage;
@@ -109,8 +91,6 @@ function displayProducts() {
     
     $('#productsContainer').html(html);
     displayPagination();
-    
-    // Dodavanje event listenera za kartice
     $('.product-card').click(function() {
         let productId = $(this).data('id');
         showProductModal(productId);
@@ -122,8 +102,6 @@ function displayProducts() {
         addToCart(productId);
     });
 }
-
-// Generisanje HTML-a za proizvod
 function generateProductCard(product) {
     let priceHtml = '';
     if (product.price.old) {
@@ -175,8 +153,6 @@ function generateProductCard(product) {
         </div>
     `;
 }
-
-// Prikaz modala sa detaljima proizvoda
 function showProductModal(productId) {
     let product = allProducts.find(p => p.id == productId);
     if (!product) return;
@@ -201,8 +177,6 @@ function showProductModal(productId) {
     $('#modalAddToCart').data('id', productId);
     $('#productModal').modal('show');
 }
-
-// Dodavanje u korpu
 function addToCart(productId) {
     let product = allProducts.find(p => p.id == productId);
     if (!product) return;
@@ -220,22 +194,15 @@ function addToCart(productId) {
     
     setLocalStorage('cart', cart);
     updateCartInfo();
-    
-    // Toast poruka
     showToast('Proizvod dodat u korpu!');
-    
     $('#productModal').modal('hide');
 }
-
-// Toast poruka (već postoji u main.js, ali ostavi za svaki slučaj)
 function showToast(message) {
     if ($('#toastMessage').length === 0) {
         $('body').append('<div id="toastMessage" class="toast-success"></div>');
     }
     $('#toastMessage').text(message).fadeIn().delay(2000).fadeOut();
 }
-
-// Postavljanje event listenera za pretragu i filtere
 function setupEventListeners() {
     $('#searchInput').on('keyup', function() {
         applyFilters();
@@ -249,16 +216,12 @@ function setupEventListeners() {
         applyFilters();
     });
 }
-
-// Primena filtera i sortiranja
 function applyFilters() {
     let searchTerm = $('#searchInput').val().toLowerCase();
     let selectedCategories = [];
     let selectedSports = [];
     let selectedBrands = [];
     let selectedSizes = [];
-    
-    // Skupljanje selektovanih filtera
     $('.filter-checkbox:checked').each(function() {
         let filterType = $(this).data('filter');
         let value = $(this).val();
@@ -278,47 +241,34 @@ function applyFilters() {
                 break;
         }
     });
-    
-    // Filtriranje
     filteredProducts = allProducts.filter(product => {
-        // Pretraga po nazivu
         let matchesSearch = product.description.toLowerCase().includes(searchTerm);
-        
-        // Filtriranje po kategoriji
         let matchesCategory = selectedCategories.length === 0 || 
             selectedCategories.includes(product.category.toLowerCase());
-        
-        // Filtriranje po sportu
         let matchesSport = selectedSports.length === 0 || 
             selectedSports.includes(product.sport.toLowerCase());
-        
-        // Filtriranje po brendu
         let matchesBrand = selectedBrands.length === 0 || 
             selectedBrands.includes(product.brand.toLowerCase());
-        
-        // Filtriranje po veličini
         let matchesSize = selectedSizes.length === 0 || 
             product.sizes.some(size => selectedSizes.includes(size.toString().toLowerCase()));
         
         return matchesSearch && matchesCategory && matchesSport && matchesBrand && matchesSize;
     });
-    
-    // Sortiranje
     let sortType = $('#sortSelect').val();
     switch(sortType) {
-        case '1': // Cena rastuće
+        case '1': 
             filteredProducts.sort((a, b) => a.price.new - b.price.new);
             break;
-        case '2': // Cena opadajuće
+        case '2': 
             filteredProducts.sort((a, b) => b.price.new - a.price.new);
             break;
-        case '3': // Naziv A-Š
+        case '3': 
             filteredProducts.sort((a, b) => a.description.localeCompare(b.description));
             break;
-        case '4': // Naziv Š-A
+        case '4': 
             filteredProducts.sort((a, b) => b.description.localeCompare(a.description));
             break;
-        case '5': // Popularnost (po zvezdicama)
+        case '5':
             filteredProducts.sort((a, b) => b.stars - a.stars);
             break;
     }
@@ -326,8 +276,6 @@ function applyFilters() {
     currentPage = 1;
     displayProducts();
 }
-
-// Prikaz paginacije
 function displayPagination() {
     let totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
     let paginationHtml = '';
@@ -349,8 +297,6 @@ function displayPagination() {
     }
     
     $('#pagination').html(paginationHtml);
-    
-    // Event listener za paginaciju
     $('.page-link').click(function(e) {
         e.preventDefault();
         currentPage = parseInt($(this).data('page'));
