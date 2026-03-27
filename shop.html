@@ -7,17 +7,14 @@
      <link rel="icon" type="image/x-icon" href="assets/img/logo.ico"/>
     <title>SportGear - Prodavnica</title>
     
-    <!-- Font Awesome -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Naš CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
     <header>
-        <!-- Navigacija - ista kao na index -->
         <nav class="navbar navbar-expand-lg bg-light shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand fw-bold fs-3" href="index.html">SportGear</a>
@@ -26,7 +23,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto" id="dynamicMenu">
-                        <!-- Dinamički meni -->
+                    
                     </ul>
                 </div>
                 <div class="ms-3">
@@ -46,7 +43,6 @@
         <h1 class="text-center mb-4">Prodavnica sportske opreme</h1>
         
         <div class="row">
-            <!-- Sidebar sa filtriranjem -->
             <div class="col-lg-3 mb-4">
                 <div class="bg-light p-3 rounded">
                     <h5>Pretraga</h5>
@@ -63,35 +59,31 @@
                     </select>
                     
                     <div id="filterContainer">
-                        <!-- Dinamički filteri iz filters.json -->
+                    
                     </div>
                 </div>
             </div>
             
-            <!-- Proizvodi -->
             <div class="col-lg-9">
                 <div class="row" id="productsContainer">
-                    <!-- Proizvodi se ispisuju iz products.json -->
+                   
                 </div>
-                
-                <!-- Paginacija -->
                 <nav aria-label="Paginacija" class="mt-4">
                     <ul class="pagination justify-content-center" id="pagination">
-                        <!-- Dinamički se ispisuje -->
+                    
                     </ul>
                 </nav>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
+  
     <footer class="bg-dark text-light pt-5 mt-5">
         <div class="container" id="footerContent">
-            <!-- Footer sadržaj iz JSON-a -->
+         
         </div>
     </footer>
 
-    <!-- Modal za detalje proizvoda -->
     <div class="modal fade" id="productModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -100,7 +92,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body" id="modalBody">
-                    <!-- Dinamički sadržaj -->
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
@@ -110,11 +102,9 @@
         </div>
     </div>
 
-    <!-- jQuery i Bootstrap -->
+  
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Naš JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/shop.js"></script>
 </body>
